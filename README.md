@@ -1,8 +1,27 @@
 # 富豪技能 · Fuhao Skills
 
-一组面向 AI Agent 的可复用 Skills。仓库采用多 Skill 结构，每个技能都可以独立安装、升级和使用。
+一组面向 AI Agent 的可复用 Skills，帮助你把 AI 从聊天工具变成能够持续协作的能力系统。
 
-所有技能优先遵循 [Agent Skills 开放规范](https://agentskills.io/specification)：以 `SKILL.md` 为入口，按需携带 `references/`、`scripts/`、`assets/` 或模板。
+## 目前有哪些 Skill
+
+| Skill | 它能帮你完成什么 | 状态 |
+|---|---|---|
+| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、解释、应用、迁移并复测的能力 | v0.1.0 |
+
+### fuhao-learning-loop：把“看过”变成“真正会用”
+
+你可以交给它一篇文章、一本书、一段视频逐字稿、一个课程、一场会议，或一个想要攻克的现实问题。它会围绕你的目标自动完成：
+
+- 先判断你已经会什么、真正卡在哪里；
+- 从长材料中筛出当前最值得学习的部分；
+- 用小段讲解、复述考察和苏格拉底追问推动理解；
+- 根据你的真实回答，自动加深、补课或调整难度；
+- 把知识放进现实任务，继续检验应用与迁移；
+- 保留学习进度，并在几天后进行低辅助复测。
+
+最终结果是：你能在没有答案提示的情况下，自己讲清楚、做出来、迁移到新场景，并在延迟复测中再次证明掌握。
+
+AI 负责阅读、拆解、出题、反馈、调整路径和记录状态；你只需要给出学习目标、独立作答并完成现实行动。
 
 ## 一句话安装（推荐）
 
@@ -88,14 +107,9 @@ Claude Code 通常会自动发现新 Skill；首次创建个人 Skills 顶层目
 
 把 [`templates/prompt-only.md`](skills/fuhao-learning-loop/templates/prompt-only.md) 作为系统提示词或首条提示词。没有持久化工具时，Agent 会在暂停或结束时输出便携学习状态卡。
 
-## Skills
-
-| Skill | 用途 | 状态 |
-|---|---|---|
-| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题推进为能够独立回忆、解释、应用、迁移并复测的能力 | v0.1.0 |
-
 ## 仓库约定
 
+- 所有技能优先遵循 [Agent Skills 开放规范](https://agentskills.io/specification)，以 `SKILL.md` 为入口，按需携带 `references/`、`scripts/`、`assets/` 或模板。
 - 每个技能放在 `skills/<skill-name>/`，目录名与 `SKILL.md` 的 `name` 保持一致。
 - 核心流程不依赖某个厂商、数据库或笔记软件。
 - 平台专属路径、能力差异和降级方式写入技能自己的适配文档。
