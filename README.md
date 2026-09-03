@@ -6,14 +6,14 @@
 
 | Skill | 它能帮你完成什么 | 状态 |
 |---|---|---|
-| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.5.0 |
+| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.6.0 |
 
 ### fuhao-learning-loop：把“看过”变成“真正会用”
 
 你可以交给它一篇文章、一本书、一段视频逐字稿、一个课程、一场会议，或一个想要攻克的现实问题。它会围绕你的目标自动完成：
 
 - 第一次使用先给一段简明说明；材料已经发来时会同时开始处理；
-- 一次采集多份材料时，可以先低打扰保存，再按时间范围去重、聚类，并围绕一个目标统一学习；
+- 一次采集多份材料时，可以先低打扰保存，再按时间范围选择、去重和聚类；AI 会围绕目标标出共识、分歧、逐来源证据和下一步主线；
 - 每次新会话首次运行时轻量检查 GitHub 版本；只有发现新版本才提醒，检查失败不会影响学习；
 - 先判断你已经会什么、真正卡在哪里；
 - 根据目标、信息增量和证据强度，建议“先留档、快速了解、深入学习”；
@@ -33,27 +33,22 @@
 
 AI 负责阅读、筛选、拆解、出题、反馈、调整路径、记录状态和调度到期项；你只需要给出学习目标与兴趣选择、独立作答、完成现实行动并确认最终掌握。
 
-## 一句话安装（推荐）
+## 30 秒安装
 
-已经在使用 **Codex** 或 **Claude Code**？直接把下面整段发给它，剩下的交给 Agent：
+你只需要做两步：复制与你使用的 Agent 对应的整段口令，发送并等待安装回执；随后发送第一条真实学习需求。
+
+### Codex（推荐）
+
+把下面整段复制给 Codex：
 
 ```text
-请帮我安装并验证这个 Agent Skill：
+请使用 $skill-installer 安装并验证这个 Skill：
 https://github.com/itsrichardfu/fuhao-skills/tree/main/skills/fuhao-learning-loop
 
-请自动识别当前是 Codex 还是 Claude Code，并安装到当前用户的全局 Skills 目录，让所有项目都能使用。Codex 请优先使用内置 skill-installer；Claude Code 请遵循官方个人 Skills 目录规范。请保留 SKILL.md、references、scripts、templates 和 evals 的完整目录结构。
-
-如果已经存在同名 Skill，请先备份旧版本，再更新；更新失败时自动恢复。安装后请检查目录完整性，读取 metadata.version，并用“带我学习一个主题”做一次触发测试。最后只告诉我：安装路径、版本、验证结果，以及是否需要开启新对话。
+安装到当前用户的 Skills 目录，并保留 SKILL.md、references、scripts、templates 和 evals 的完整结构。如果同名 Skill 已存在：先读取本地与 GitHub 的版本；版本相同就停止，版本较旧则把旧目录备份到同级带时间戳的目录，再安装新版。安装或验证失败时恢复旧目录。最后检查 metadata.version、相对引用和脚本，并用“带我学习一个主题”验证触发。只回复安装路径、版本、验证结果、备份路径（首次安装写“无”）和是否需要重启 Codex。
 ```
 
-你只需要完成两步：
-
-1. 复制上面的口令给 Agent；
-2. 等它回复“安装成功”。
-
-### Codex
-
-安装完成后的下一条消息可以这样写：
+安装成功后的下一条消息可以这样写：
 
 ```text
 $fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
@@ -65,14 +60,17 @@ $fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自�
 请使用 fuhao-learning-loop 帮我内化这篇材料：<材料链接>
 ```
 
-如果 Skill 没有立刻出现，开启一个新对话后再试。
+Codex 通常会自动发现新 Skill；没有出现时再重启 Codex。官方说明见 [Codex Skills](https://developers.openai.com/codex/skills)。
 
 ### Claude Code
 
-Claude Code 的个人 Skill 会安装到：
+把下面整段复制给 Claude Code：
 
 ```text
-~/.claude/skills/fuhao-learning-loop/
+请从这个 GitHub 地址安装并验证 fuhao-learning-loop：
+https://github.com/itsrichardfu/fuhao-skills/tree/main/skills/fuhao-learning-loop
+
+安装到 ~/.claude/skills/fuhao-learning-loop/，保留 SKILL.md、references、scripts、templates 和 evals 的完整结构。如果同名目录已存在：先比较本地与 GitHub 版本；版本相同就停止，版本较旧则把旧目录备份到同级带时间戳的目录，再安装新版。安装或验证失败时恢复旧目录。最后检查 SKILL.md 和相对引用，再用“带我学习一个主题”验证自动触发。只回复安装路径、版本、验证结果、备份路径（首次安装写“无”）和是否需要重启 Claude Code。
 ```
 
 安装后可以直接输入：
@@ -81,7 +79,32 @@ Claude Code 的个人 Skill 会安装到：
 /fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
 ```
 
-Claude Code 通常会自动发现新 Skill；首次创建个人 Skills 顶层目录时，重启一次 Claude Code 即可。
+Claude Code 会监听已经存在的 Skills 目录；首次创建顶层目录时需要重启一次。官方说明见 [Claude Code Skills](https://code.claude.com/docs/en/skills)。
+
+### 安装成功的判断
+
+Agent 的回执需要同时包含：
+
+- 安装路径与 `metadata.version`；
+- `SKILL.md` 及四个配套目录完整；
+- Skill 已被客户端发现；
+- “带我学习一个主题”能够触发首次引导和学习目标对齐。
+
+只复制了一个 `SKILL.md`、目录缺失或只能手动粘贴提示词，都不算完整安装。
+
+### 安装后会获得什么
+
+- Codex、Claude Code 等支持 Skills 的 Agent 会获得完整学习交互：目标对齐、材料深挖、多材料综合、苏格拉底考察、应用、迁移和复测协议；
+- 飞书机器人、消息引用恢复、长期数据库、卡片和主动提醒需要宿主提供对应接口；缺少这些能力时，Skill 会使用便携状态卡继续工作；
+- 安装 Skill 不会自动创建飞书机器人、读取个人知识库或取得额外权限。任何外部读取与写入仍由宿主权限和用户授权决定。
+
+### 隐私与联网
+
+仓库不包含账号凭据或学习记录。版本检查只读取 GitHub 上公开的 `SKILL.md` 版本号，并在本机缓存检查时间；不会上传学习材料。宿主无法运行脚本或无法联网时会静默跳过检查，不影响学习。
+
+### 更新
+
+Skill 每个新会话最多检查一次公开版本，24 小时内使用缓存。发现新版时只提醒，不会自行覆盖。看到提醒后，把上面的同一条安装口令再次发给 Agent，它会先备份旧版，再验证更新与回退路径。
 
 ## 其他安装方式
 

@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.5.0"
+  version: "0.6.0"
 ---
 
 # Fuhao Learning Loop
@@ -60,6 +60,7 @@ Show the guide once per channel or conversation. When the first message already 
 ## Select a mode
 
 - **Single material**: one article, video, transcript, lesson, meeting, or document.
+- **Multi-material session**: several collected sources learned together within a time range or explicit selection.
 - **Topic path**: a theory, skill, book, or field requiring multiple units.
 - **Real problem**: a current project, decision, or life situation that requires new judgment or skill.
 - **Resume or retest**: continue an existing session, quiz prior learning, or run a delayed review.
@@ -76,7 +77,18 @@ If the user only wants a summary, produce the summary without forcing a learning
 
 When several sessions exist, offer a compact learning dashboard with readable stages, due items, and numbered choices. Quoted messages, stable source identity, and list numbers may all restore a prior material without re-reading it.
 
-When several materials arrive in one collection period, support a low-interruption save-only intake when host state allows it. After collection, deduplicate, cluster themes, identify agreement and conflict, then select the shortest path using the learner's target ability. If materials are unrelated, offer a few target-relevant topic candidates and advance one at a time.
+When several materials arrive in one collection period, support a low-interruption save-only intake when host state allows it. Accept natural selections such as `learn today's materials`, `learn this week's materials toward <goal>`, or `learn the latest 10 items`. If materials are unrelated, offer a few target-relevant topic candidates and advance one at a time.
+
+## Multi-material evidence workflow
+
+1. Select the requested time range or explicit source set. Report included, excluded, and truncated sources in readable language.
+2. Exclude sources without verifiable content coverage. Deduplicate by canonical source identity and normalized content; keep one copy of shared-origin material.
+3. Preserve each original source and single-material session. Create a separate stable topic session for the aggregate learning path.
+4. Keep each source's label, version, locator, and bounded evidence excerpt. When a long source is truncated, disclose the boundary and allow a return to its full single-material session.
+5. If the learner supplied a goal, align clusters, questions, and actions to it. Otherwise recommend one highest-value target and offer a few genuinely different alternatives.
+6. Separate theme clusters, single-source claims, cross-source agreement, genuine conflict, and unknowns. Repetition from one origin does not strengthen independent evidence.
+7. Show a cross-source agreement or conflict only when at least two distinct sources each provide a verbatim, source-locatable excerpt. Drop invalid labels, unlocatable quotes, and one-source candidates from confirmed cross-source sections.
+8. Let the topic session continue through deep learning, visible assessment scope, Socratic examination, real application, transfer, and delayed retest. Quoted messages and the learning dashboard must restore either the topic session or an original source without re-ingestion.
 
 ## Triage material depth
 
@@ -222,6 +234,7 @@ Read [references/platform-adapters.md](references/platform-adapters.md) when ins
 | Continue | `Continue learning` · `Continue <topic>` |
 | Inspect | `Show my progress` · `What gap remains?` |
 | Portfolio | `Show all my learning` · `Open item 2` |
+| Multi-material | `Learn today's materials` · `Learn this week's materials toward pricing` · `Learn the latest 10 items` |
 | Deepen | `Deep learning` · `Explain this mechanism in detail` · `I am more interested in the cases` · `Try another direction` · `Go deeper on path 2` |
 | Practice | `Quiz me` · `Let me explain it back` |
 | Apply | `Give me a real exercise` · `Apply this to my project` |
@@ -256,6 +269,7 @@ When the host supports structured message cards, use them for navigation, deep l
 - The assistance level is traceable.
 - The next step follows the current gap and contains one cognitive action.
 - Source claims and interpretations remain separated.
+- Multi-material scope is readable, originals remain recoverable, and every displayed agreement or conflict has at least two verified source excerpts.
 - Application, transfer, retest, and mastery status are explicit.
 - Missing real-world evidence remains unknown and has a concrete collection request.
 - State was persisted and read back when tools allow, or a portable state card was returned.

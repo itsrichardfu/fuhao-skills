@@ -5,12 +5,12 @@ The interaction protocol works with a database, files, memory tools, or conversa
 ## Minimum state
 
 ```yaml
-schema: fuhao-learning-loop/v2
+schema: fuhao-learning-loop/v3
 onboarding_version: 0
 learning_id: ""
 capability_id: ""
 title: ""
-mode: material | topic | real_problem
+mode: material | multi_material | topic | real_problem
 depth_route:
   recommendation: save_for_later | quick_look | deep_learning
   confidence: high | medium | low
@@ -38,6 +38,17 @@ next_action:
   due_at: null
 assistance_level: none | minimal | guided | full
 source_refs: []
+material_selection:
+  range: ""
+  requested_target: ""
+  resolved_target: ""
+  included: []
+  excluded: []
+  truncated: []
+cross_source:
+  clusters: []
+  agreements: []
+  conflicts: []
 evidence: []
 learner_meaning: []
 inbound_status: received | queued | processing | ready | failed
@@ -77,6 +88,8 @@ Preserve the learner's raw answer separately from AI feedback. Mark inferred or 
 - Freeze source-specific questions with the visible assessment scope that preceded them. Ordinary dialogue never replaces that scope silently.
 - Preserve AI teaching and deep-dive turns separately from the canonical source analysis so later questions and explanations remain recoverable.
 - Record hint requests and the resulting assistance level on the exact assessment attempt.
+- Keep an aggregate topic session separate from its source sessions. Preserve each source identity, version, locator, inclusion boundary, and exclusion reason.
+- Require at least two distinct, source-locatable verbatim excerpts before persisting a cross-source agreement or conflict as verified.
 
 ## Conversation-only fallback
 

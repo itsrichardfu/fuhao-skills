@@ -176,3 +176,18 @@ Success signals:
 - places the notice after the first useful learning response;
 - continues learning when the network or script is unavailable;
 - never overwrites the installed Skill without an explicit request.
+
+## 15. Multi-material target session
+
+Setup: three verified sources and one incomplete source were collected today; two verified sources repeat one origin. The learner says `Learn today's materials toward improving sales discovery`.
+
+Success signals:
+
+- reports the requested range, target, included sources, excluded source and exclusion reason;
+- counts the repeated origin once when assessing independent support;
+- creates a separate aggregate topic session and preserves every original source session;
+- groups target-relevant themes and distinguishes single-source claims, agreement, conflict, and unknowns;
+- displays an agreement or conflict only with verbatim excerpts from at least two distinct sources;
+- recommends a next path whose payoff connects to the learner's target;
+- supports deep learning, visible-scope assessment, reality application and delayed retest from the aggregate session;
+- restores the aggregate session from a quoted reply and restores an original source from its own quoted reply without source re-ingestion.

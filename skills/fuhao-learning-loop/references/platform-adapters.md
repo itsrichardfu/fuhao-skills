@@ -70,4 +70,7 @@ When adapting to Feishu, Slack, Discord, or another message channel:
 3. process expensive retrieval or transcription under a bounded worker queue;
 4. record outbound message identity so quoted replies restore the correct learning session;
 5. send each due reminder once and preserve retry-safe idempotency;
-6. keep machine status codes in the state store and render human-readable stages in chat.
+6. accept time-range or recent-count batch requests when the state store can enumerate source sessions;
+7. deduplicate before building a bounded evidence packet, then create a separate aggregate session while preserving every source session;
+8. validate each cross-source agreement or conflict against verbatim excerpts from at least two distinct sources;
+9. keep machine status codes in the state store and render human-readable stages in chat.
