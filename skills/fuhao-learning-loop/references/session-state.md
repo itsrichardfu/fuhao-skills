@@ -19,6 +19,12 @@ deep_dive_paths: []
 selected_deep_dive:
   path_index: null
   topic: ""
+visible_assessment:
+  version: ""
+  shown_at: ""
+  lesson_kind: navigation | deep_dive | remediation
+  questions: []
+  scoring_points: []
 intent:
   current_ability: ""
   target_ability: ""
@@ -68,6 +74,9 @@ Preserve the learner's raw answer separately from AI feedback. Mark inferred or 
 - Store questions and ordinary dialogue separately from explicitly confirmed learner meaning.
 - When background work is available, persist inbound identity before acknowledgement and keep a recoverable queue status.
 - Keep the initial depth recommendation and later learner-selected branches so resume does not collapse back to a generic summary.
+- Freeze source-specific questions with the visible assessment scope that preceded them. Ordinary dialogue never replaces that scope silently.
+- Preserve AI teaching and deep-dive turns separately from the canonical source analysis so later questions and explanations remain recoverable.
+- Record hint requests and the resulting assistance level on the exact assessment attempt.
 
 ## Conversation-only fallback
 

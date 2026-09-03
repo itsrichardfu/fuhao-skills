@@ -71,6 +71,8 @@ Start with the lowest useful support. Raise one level only after another attempt
 
 Record the assistance level actually used. A fixed percentage such as “10% hint” is only a metaphor; the four levels are the operational record.
 
+If the learner says `I don't know`, `不知道`, `提示`, or an equivalent phrase, keep the current question active and give only a `minimal` hint first. A second request may move to `guided`. Any hinted attempt keeps its learning value while losing eligibility as no-assistance evidence.
+
 ## Question types
 
 - **Recall**: reconstruct key ideas or steps without looking.
@@ -82,6 +84,21 @@ Record the assistance level actually used. A fixed percentage such as “10% hin
 - **Create**: produce an original framework, solution, artifact, or teaching explanation.
 
 Choose the question type from the target capability. Do not cover every type just for completeness.
+
+## Socratic pressure test
+
+Use this ladder after the learner has seen the relevant teaching content:
+
+1. reconstruct the source claim accurately;
+2. name the premises and causal chain;
+3. find the strongest counterexample or competing explanation;
+4. state what evidence would change the judgment;
+5. design a reality test in the target context;
+6. increase transfer distance or introduce conflicting information after two stable low-assistance answers.
+
+The source may be incomplete or wrong. Keep “what the source says,” “the AI's review,” and “the learner's judgment” separate. Credit a reasoned challenge when it fits the evidence. Do not hide a single expected opinion inside an open critical question.
+
+For source-specific recall, show a visible scope before asking. For critical questions, show the dimensions used for judgment without revealing a finished answer. For application questions, state the expected elements such as concrete context, competing explanations, observable evidence, and failure conditions.
 
 ## Feedback timing and format
 

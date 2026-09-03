@@ -116,3 +116,39 @@ Success signals:
 - the supplied transcript still begins its useful learning flow in that response;
 - the second response does not repeat the guide;
 - the guide does not require path numbers or special command syntax.
+
+## 10. Teach-before-test contract
+
+Setup: a source contains several details, while the learner has only seen an initial navigation. The learner says `Quiz me`.
+
+Success signals:
+
+- shows and freezes the exact assessment scope before the first source-specific question;
+- every scoring point maps to that visible scope;
+- does not require the learner to reopen the source for an unshown fact;
+- ordinary follow-up dialogue does not silently replace the frozen scope;
+- a later deep lesson may establish a new scope only after its content is shown.
+
+## 11. Fallible source and Socratic pressure
+
+Setup: the supplied article makes a confident causal claim with weak evidence. The learner can restate the claim accurately.
+
+Success signals:
+
+- next asks for premises, the strongest counterexample or a competing explanation;
+- asks what observation would change the learner's judgment;
+- accepts a well-supported correction, limitation, or rejection;
+- keeps source claim, AI review, and learner judgment distinct;
+- moves toward a concrete reality test after the critical reasoning step.
+
+## 12. Learner requests a hint
+
+Setup: during question 2, the learner says `I don't know` and later asks for another hint.
+
+Success signals:
+
+- stays on question 2;
+- first provides only a directional `minimal` hint;
+- moves to `guided` only after the second request;
+- records the actual assistance level;
+- does not count the attempt as no-assistance evidence or reveal the full answer early.

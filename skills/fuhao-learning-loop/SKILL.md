@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.3.0"
+  version: "0.4.0"
 ---
 
 # Fuhao Learning Loop
@@ -18,6 +18,8 @@ Use this intent formula:
 > Help the learner, in `{target context}`, turn `{current ability A}` into `{independently demonstrable ability B}`.
 
 Documents, summaries, dialogue, and scores are process evidence. The learning outcome is the learner's demonstrated ability.
+
+Treat source claims as objects to understand and test. A well-supported correction, limitation, or rejection can demonstrate stronger learning than agreement.
 
 ## Roles
 
@@ -96,7 +98,7 @@ If one missing detail would materially change the path, ask at most one high-val
 
 ### 2. Establish a lightweight baseline
 
-Before active teaching, ask one to three closed-book questions that reveal the learner's current model. Freeze the questions and success criteria before collecting the raw response.
+Before active teaching, ask one to three closed-book questions that reveal the learner's existing model. A baseline may test prior knowledge or reasoning from information included in the question. Do not ask for details that only exist in an unread source.
 
 A save-only request, urgent fact lookup, or explicit request to skip assessment may defer the baseline. Record the reason.
 
@@ -120,13 +122,27 @@ Provide only the material needed for that action, then request one observable re
 
 Explicit interest such as “go deeper,” “why,” “derive it,” “show evidence,” “give examples,” “find a counterexample,” or an equivalent phrase overrides the earlier depth recommendation for that branch.
 
-### 5. Preserve assessment integrity
+### 5. Teach before source-specific assessment
+
+Before quizzing material-specific knowledge, create a visible assessment scope. Show the exact ideas and judgment dimensions that later scoring may use, then freeze this scope with the questions and rubric.
+
+Use three layers when the material supports them:
+
+1. **Source reconstruction**: accurately state what the author or material claims.
+2. **Socratic examination**: inspect premises, causal links, evidence strength, counterexamples, competing explanations, falsifiability, and failure boundaries.
+3. **Reality test**: treat the claim as a hypothesis, apply it in a concrete situation, and identify observations that would support, weaken, or change the judgment.
+
+Ask one question at a time in normal learning. Each question must point to the visible scope it uses. Critical and application questions may have several defensible answers; score reasoning quality and evidence fit. Never grade agreement with the source as a substitute for judgment.
+
+Ordinary dialogue appends to the session without silently replacing the visible assessment scope. A deep-dive lesson may create a new scope after its teaching content is shown. If a legacy session has no visible scope, show one before starting the quiz.
+
+### 6. Preserve assessment integrity
 
 Normal teaching dialogue receives feedback immediately after the raw response is captured.
 
-A formal closed-book assessment collects all answers in the assessment set before showing hints, answers, or evaluation. Record the actual assistance level: `none`, `minimal`, `guided`, or `full`.
+A formal closed-book assessment collects all answers in the assessment set before showing complete answers or evaluation. If the learner says they do not know or requests help, give the smallest useful directional clue, stay on the same question, and record the actual assistance level: `none`, `minimal`, `guided`, or `full`. A helped attempt cannot count as no-assistance evidence; schedule another independent retest when that evidence is required.
 
-### 6. Adapt from evidence
+### 7. Adapt from evidence
 
 After feedback, choose among:
 
@@ -139,7 +155,7 @@ After feedback, choose among:
 
 Base difficulty changes on observed responses. Fluency alone does not prove mastery.
 
-### 7. Apply and transfer
+### 8. Apply and transfer
 
 After explanation and recall are adequate, create a minimum application in the target context. Record the prediction, success and failure signals, evidence format, observation window, and stop conditions.
 
@@ -147,7 +163,7 @@ When the result arrives, compare prediction with reality. Preserve surprises, co
 
 If reality data is incomplete, ask for the missing dimensions, why each matters, the observation period, and acceptable evidence formats. Keep missing results unknown.
 
-### 8. Retest and confirm mastery
+### 9. Retest and confirm mastery
 
 Schedule or propose a low-assistance or no-assistance retest 3 to 30 days later, adjusted for difficulty and expected use.
 
@@ -211,6 +227,8 @@ For a new material, show the progressive learning navigation. During an active l
 
 Keep internal IDs, storage paths, and synchronization details quiet unless ambiguity or failure requires them.
 
+When the host supports structured message cards, use them for navigation, deep lessons, quiz questions, feedback, application plans, and dashboards. Keep brief acknowledgements, clarifications, ordinary dialogue, and errors as lightweight text. Cards must degrade to the same readable text and should not require callback buttons for the core loop.
+
 ## Completion check
 
 - The target context and independently observable ability are clear.
@@ -219,6 +237,9 @@ Keep internal IDs, storage paths, and synchronization details quiet unless ambig
 - First-run onboarding appears once, keeps an existing material or goal moving, and does not require numbers or fixed syntax.
 - The first deep-dive path is a reasoned recommendation; a generic deep-learning request selects it automatically.
 - Raw answers are captured before applicable feedback.
+- Every source-specific question maps to ideas or judgment dimensions shown before the question.
+- The assessment distinguishes accurate source reconstruction from agreement and rewards evidence-based correction or rejection.
+- Socratic questions test premises, counterexamples, competing explanations, falsifiability, or reality evidence.
 - The assistance level is traceable.
 - The next step follows the current gap and contains one cognitive action.
 - Source claims and interpretations remain separated.
