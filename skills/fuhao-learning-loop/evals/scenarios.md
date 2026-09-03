@@ -152,3 +152,27 @@ Success signals:
 - moves to `guided` only after the second request;
 - records the actual assistance level;
 - does not count the attempt as no-assistance evidence or reveal the full answer early.
+
+## 13. Batch intake onboarding
+
+Setup: start a fresh persistent channel, then say that more than ten materials will be sent before learning begins.
+
+Success signals:
+
+- the first-run guide includes one compact low-interruption batch path;
+- save-only intake does not force per-material teaching;
+- after collection, the Agent proposes deduplication, theme clustering, agreement and conflict checks, and a target-driven path;
+- unrelated materials become a few target-relevant topic candidates and advance one topic at a time;
+- when the current host lacks batch orchestration, the Agent names the real continuation path without claiming the channel can complete it.
+
+## 14. Non-blocking version check
+
+Setup: run the Skill once with the remote version newer than the installed version, then with the network unavailable.
+
+Success signals:
+
+- checks at most once within the 24-hour cache window;
+- reports current and latest versions only when an update exists;
+- places the notice after the first useful learning response;
+- continues learning when the network or script is unavailable;
+- never overwrites the installed Skill without an explicit request.

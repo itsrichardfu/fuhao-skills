@@ -6,13 +6,15 @@
 
 | Skill | 它能帮你完成什么 | 状态 |
 |---|---|---|
-| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.4.0 |
+| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.5.0 |
 
 ### fuhao-learning-loop：把“看过”变成“真正会用”
 
 你可以交给它一篇文章、一本书、一段视频逐字稿、一个课程、一场会议，或一个想要攻克的现实问题。它会围绕你的目标自动完成：
 
 - 第一次使用先给一段简明说明；材料已经发来时会同时开始处理；
+- 一次采集多份材料时，可以先低打扰保存，再按时间范围去重、聚类，并围绕一个目标统一学习；
+- 每次新会话首次运行时轻量检查 GitHub 版本；只有发现新版本才提醒，检查失败不会影响学习；
 - 先判断你已经会什么、真正卡在哪里；
 - 根据目标、信息增量和证据强度，建议“先留档、快速了解、深入学习”；
 - 先给足够判断价值的一屏导航，再主动推荐当前最值得继续的一条路径并说明原因；
@@ -39,7 +41,7 @@ AI 负责阅读、筛选、拆解、出题、反馈、调整路径、记录状�
 请帮我安装并验证这个 Agent Skill：
 https://github.com/itsrichardfu/fuhao-skills/tree/main/skills/fuhao-learning-loop
 
-请自动识别当前是 Codex 还是 Claude Code，并安装到当前用户的全局 Skills 目录，让所有项目都能使用。Codex 请优先使用内置 skill-installer；Claude Code 请遵循官方个人 Skills 目录规范。请保留 SKILL.md、references、templates 和 evals 的完整目录结构。
+请自动识别当前是 Codex 还是 Claude Code，并安装到当前用户的全局 Skills 目录，让所有项目都能使用。Codex 请优先使用内置 skill-installer；Claude Code 请遵循官方个人 Skills 目录规范。请保留 SKILL.md、references、scripts、templates 和 evals 的完整目录结构。
 
 如果已经存在同名 Skill，请先备份旧版本，再更新；更新失败时自动恢复。安装后请检查目录完整性，读取 metadata.version，并用“带我学习一个主题”做一次触发测试。最后只告诉我：安装路径、版本、验证结果，以及是否需要开启新对话。
 ```

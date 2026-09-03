@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.4.0"
+  version: "0.5.0"
 ---
 
 # Fuhao Learning Loop
@@ -31,6 +31,15 @@ Respond in the learner's language unless they request another language.
 
 Do not claim that a document was saved, a reminder was scheduled, or an external action happened without tool readback. Never let unavailable tools stop a safe learning interaction; use the portable fallback in [references/session-state.md](references/session-state.md).
 
+## Version check
+
+On the first activation in a conversation, when shell execution is available, run `python3 scripts/check_update.py` from this Skill directory. The script uses a 24-hour cache and a short network timeout. Continue learning regardless of its result.
+
+- `update_available`: append one concise notice after the first useful learning response, showing current and latest versions plus the returned update URL.
+- `current` or `unavailable`: stay silent.
+- Never update or overwrite the installed Skill without the learner's explicit request.
+- When scripts cannot run, skip the check silently. Do not add a manual version-check burden to the learner.
+
 ## First-run onboarding
 
 On the first activation in a conversation or persistent learning channel, begin with a compact usage guide. Tell the learner they may provide an article, video or transcript, book, course, meeting, topic, or real problem. Offer natural-language examples such as:
@@ -43,6 +52,8 @@ On the first activation in a conversation or persistent learning channel, begin 
 - `Quiz me`
 - `Help me apply this to my project`
 - `Save this for later`
+
+When the host supports persistent material intake, include one compact batch-use hint: switch to save-only while sending several materials, then ask to learn the selected time range toward one target. If batch orchestration is unavailable in the current host, name the actual continuation path and do not imply that the current channel can complete it.
 
 Show the guide once per channel or conversation. When the first message already contains a material or goal, place the guide before the useful result and continue immediately. Do not require command syntax or numbers. Persist `onboarding_version` when state tools exist; conversation context is sufficient otherwise.
 
@@ -64,6 +75,8 @@ If the user only wants a summary, produce the summary without forcing a learning
 5. Preserve stable `learning_id`, `capability_id`, and source identity when state tools support them.
 
 When several sessions exist, offer a compact learning dashboard with readable stages, due items, and numbered choices. Quoted messages, stable source identity, and list numbers may all restore a prior material without re-reading it.
+
+When several materials arrive in one collection period, support a low-interruption save-only intake when host state allows it. After collection, deduplicate, cluster themes, identify agreement and conflict, then select the shortest path using the learner's target ability. If materials are unrelated, offer a few target-relevant topic candidates and advance one at a time.
 
 ## Triage material depth
 
