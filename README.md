@@ -4,23 +4,61 @@
 
 所有技能优先遵循 [Agent Skills 开放规范](https://agentskills.io/specification)：以 `SKILL.md` 为入口，按需携带 `references/`、`scripts/`、`assets/` 或模板。
 
-## Skills
+## 一句话安装（推荐）
 
-| Skill | 用途 | 状态 |
-|---|---|---|
-| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题推进为能够独立回忆、解释、应用、迁移并复测的能力 | v0.1.0 |
+已经在使用 **Codex** 或 **Claude Code**？直接把下面整段发给它，剩下的交给 Agent：
 
-## 安装
+```text
+请帮我安装并验证这个 Agent Skill：
+https://github.com/itsrichardfu/fuhao-skills/tree/main/skills/fuhao-learning-loop
 
-先克隆仓库：
+请自动识别当前是 Codex 还是 Claude Code，并安装到当前用户的全局 Skills 目录，让所有项目都能使用。Codex 请优先使用内置 skill-installer；Claude Code 请遵循官方个人 Skills 目录规范。请保留 SKILL.md、references、templates 和 evals 的完整目录结构。
 
-```bash
-git clone https://github.com/itsrichardfu/fuhao-skills.git
+如果已经存在同名 Skill，请先备份旧版本，再更新；更新失败时自动恢复。安装后请检查目录完整性，读取 metadata.version，并用“带我学习一个主题”做一次触发测试。最后只告诉我：安装路径、版本、验证结果，以及是否需要开启新对话。
 ```
 
-### Agent Skills 兼容客户端
+你只需要完成两步：
 
-将目标技能目录复制或链接到客户端扫描的 Skills 目录。例如，项目级通用目录通常是：
+1. 复制上面的口令给 Agent；
+2. 等它回复“安装成功”。
+
+### Codex
+
+安装完成后的下一条消息可以这样写：
+
+```text
+$fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
+```
+
+也可以直接用自然语言：
+
+```text
+请使用 fuhao-learning-loop 帮我内化这篇材料：<材料链接>
+```
+
+如果 Skill 没有立刻出现，开启一个新对话后再试。
+
+### Claude Code
+
+Claude Code 的个人 Skill 会安装到：
+
+```text
+~/.claude/skills/fuhao-learning-loop/
+```
+
+安装后可以直接输入：
+
+```text
+/fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
+```
+
+Claude Code 通常会自动发现新 Skill；首次创建个人 Skills 顶层目录时，重启一次 Claude Code 即可。
+
+## 其他安装方式
+
+### 通用 Agent Skills 客户端
+
+让 Agent 把完整的 `skills/fuhao-learning-loop/` 目录安装到客户端扫描的用户级或项目级 Skills 目录。例如：
 
 ```text
 <project>/.agents/skills/fuhao-learning-loop/
@@ -28,7 +66,7 @@ git clone https://github.com/itsrichardfu/fuhao-skills.git
 
 ### WorkBuddy / CodeBuddy
 
-将技能放入项目的 `.codebuddy/skills/`，或者通过 WorkBuddy 的 Skill 管理界面导入：
+把完整技能目录放入项目的 `.codebuddy/skills/`，或通过 WorkBuddy 的 Skill 管理界面导入：
 
 ```text
 <project>/.codebuddy/skills/fuhao-learning-loop/
@@ -41,7 +79,7 @@ git clone https://github.com/itsrichardfu/fuhao-skills.git
 豆包工作支持自定义和团队共享 Skill。不同客户端版本的导入入口可能变化：
 
 1. 优先尝试在“技能”或“自定义技能”界面导入 `skills/fuhao-learning-loop/`；
-2. 若当前版本无法导入目录，使用 [`templates/prompt-only.md`](skills/fuhao-learning-loop/templates/prompt-only.md) 创建单文件技能；
+2. 当前版本无法导入目录时，使用 [`templates/prompt-only.md`](skills/fuhao-learning-loop/templates/prompt-only.md) 创建单文件技能；
 3. 看到技能名称成功加载，并完成一次测试对话后，再视为安装成功。
 
 参考：[豆包工作团队版](https://www.doubao.com/work/group)。
@@ -49,6 +87,12 @@ git clone https://github.com/itsrichardfu/fuhao-skills.git
 ### 只有对话框的 Agent
 
 把 [`templates/prompt-only.md`](skills/fuhao-learning-loop/templates/prompt-only.md) 作为系统提示词或首条提示词。没有持久化工具时，Agent 会在暂停或结束时输出便携学习状态卡。
+
+## Skills
+
+| Skill | 用途 | 状态 |
+|---|---|---|
+| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题推进为能够独立回忆、解释、应用、迁移并复测的能力 | v0.1.0 |
 
 ## 仓库约定
 
