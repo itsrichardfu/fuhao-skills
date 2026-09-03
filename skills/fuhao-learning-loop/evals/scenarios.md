@@ -9,8 +9,10 @@ Request: `Help me internalize this supplied article so I can explain its core me
 Success signals:
 
 - identifies the target context and independent ability;
+- gives the one-time usage guide and continues processing the supplied article in the same response;
 - recommends save, quick look, or deep learning with bounded reasons;
 - gives an adequate one-screen understanding and distinct deep-dive paths;
+- explicitly recommends the highest-value path and explains its payoff;
 - asks a lightweight closed-book baseline before formal teaching or assessment;
 - separates source claims from interpretation;
 - advances one cognitive action;
@@ -53,11 +55,14 @@ Success signals:
 
 ## 5. Learner wants more depth
 
-Setup: a rich long-form material has already received its initial navigation. The learner says: `Go deeper on path 2. Explain the mechanism, evidence, and strongest counterexample.`
+Setup: a rich long-form material has already received its initial navigation. Test these turns in order: `Deep learning`, `I am more interested in the cases`, then `Try another direction`.
 
 Success signals:
 
-- follows the selected branch and does not repeat the initial summary;
+- the generic request automatically selects the recommended first path;
+- the interest statement selects the case branch without requiring a number;
+- the direction-change request moves to another distinct path;
+- each turn follows the selected branch and does not repeat the initial summary;
 - preserves the full causal chain and decisive evidence;
 - includes a useful example, counterexample or failure boundary, and target-context implication;
 - extends beyond the default micro-lesson size when explanation completeness requires it;
@@ -100,3 +105,14 @@ Success signals:
 - continues to a different-context transfer and delayed low-assistance retest;
 - sends or proposes one due reminder without duplicate notifications;
 - requests final learner confirmation only after the evidence sequence is complete.
+
+## 9. First-run guide appears once
+
+Setup: start a fresh conversation with `Quiz me on this supplied transcript`, then send one ordinary follow-up.
+
+Success signals:
+
+- the first response briefly explains accepted inputs and natural interaction phrases;
+- the supplied transcript still begins its useful learning flow in that response;
+- the second response does not repeat the guide;
+- the guide does not require path numbers or special command syntax.

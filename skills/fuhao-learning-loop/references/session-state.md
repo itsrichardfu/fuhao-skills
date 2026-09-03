@@ -6,6 +6,7 @@ The interaction protocol works with a database, files, memory tools, or conversa
 
 ```yaml
 schema: fuhao-learning-loop/v2
+onboarding_version: 0
 learning_id: ""
 capability_id: ""
 title: ""
@@ -15,6 +16,9 @@ depth_route:
   confidence: high | medium | low
   why: ""
 deep_dive_paths: []
+selected_deep_dive:
+  path_index: null
+  topic: ""
 intent:
   current_ability: ""
   target_ability: ""

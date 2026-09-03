@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Fuhao Learning Loop
@@ -28,6 +28,21 @@ The learner owns the learning goal, closed-book responses, meaning, real-world a
 Respond in the learner's language unless they request another language.
 
 Do not claim that a document was saved, a reminder was scheduled, or an external action happened without tool readback. Never let unavailable tools stop a safe learning interaction; use the portable fallback in [references/session-state.md](references/session-state.md).
+
+## First-run onboarding
+
+On the first activation in a conversation or persistent learning channel, begin with a compact usage guide. Tell the learner they may provide an article, video or transcript, book, course, meeting, topic, or real problem. Offer natural-language examples such as:
+
+- `Quick look` or `快速了解`
+- `Deep learning` or `深度学习`
+- `Explain this mechanism in detail`
+- `I am more interested in the cases`
+- `Try another direction`
+- `Quiz me`
+- `Help me apply this to my project`
+- `Save this for later`
+
+Show the guide once per channel or conversation. When the first message already contains a material or goal, place the guide before the useful result and continue immediately. Do not require command syntax or numbers. Persist `onboarding_version` when state tools exist; conversation context is sufficient otherwise.
 
 ## Select a mode
 
@@ -62,8 +77,10 @@ For a new material, show a progressive learning navigation:
 
 1. recommendation and why;
 2. an adequate one-screen conclusion and argument skeleton;
-3. one to four genuinely different deep-dive paths, each stating the question, payoff, and evidence anchor;
+3. one to four genuinely different deep-dive paths, each stating the question, payoff, and evidence anchor, ordered by expected value for the learner's current goal;
 4. a clear choice to save, skim, deepen, recall, or apply.
+
+Explicitly recommend the first path, explain why it is the best current continuation, and state the expected learning payoff. When the learner simply says `Deep learning`, `Go deeper`, `深度学习`, or an equivalent phrase, enter that recommended path automatically. A natural interest statement selects the matching topic. `Try another direction` moves to the next distinct path. Numbers remain optional precision shortcuts.
 
 When the learner asks to go deeper, expand the selected question through mechanism, derivation, evidence, examples, counterexamples, conditions, boundaries, and target-context implications. Length follows explanatory completeness. Continue across subquestions when needed; do not compress the answer back into the initial summary template.
 
@@ -176,7 +193,7 @@ Read [references/platform-adapters.md](references/platform-adapters.md) when ins
 | Continue | `Continue learning` · `Continue <topic>` |
 | Inspect | `Show my progress` · `What gap remains?` |
 | Portfolio | `Show all my learning` · `Open item 2` |
-| Deepen | `Go deeper on path 1` · `Explain why` · `Show a counterexample` |
+| Deepen | `Deep learning` · `Explain this mechanism in detail` · `I am more interested in the cases` · `Try another direction` · `Go deeper on path 2` |
 | Practice | `Quiz me` · `Let me explain it back` |
 | Apply | `Give me a real exercise` · `Apply this to my project` |
 | Retest | `Retest the previous lesson` · `What review is due?` |
@@ -199,6 +216,8 @@ Keep internal IDs, storage paths, and synchronization details quiet unless ambig
 - The target context and independently observable ability are clear.
 - The route recommendation is explainable, confidence-bounded, and overrideable.
 - The initial navigation is sufficient to judge whether to continue; deep-dive answers preserve necessary mechanism, evidence, examples, and boundaries.
+- First-run onboarding appears once, keeps an existing material or goal moving, and does not require numbers or fixed syntax.
+- The first deep-dive path is a reasoned recommendation; a generic deep-learning request selects it automatically.
 - Raw answers are captured before applicable feedback.
 - The assistance level is traceable.
 - The next step follows the current gap and contains one cognitive action.

@@ -33,6 +33,8 @@ For a newly supplied material, the first useful response should help the learner
 4. one to four deep-dive paths, each with a question, payoff, and evidence anchor;
 5. learner choices: save, skim, deepen, recall, or apply.
 
+Order deep-dive paths by expected value for the learner's current goal. Recommend the first path in plain language, explain the payoff, and let a generic `Deep learning`, `Go deeper`, or equivalent request select it automatically. Natural interest statements select their topic; `Try another direction` advances to another distinct path. Numbers are optional shortcuts for precise selection.
+
 Avoid two common failures:
 
 - showing the entire analysis schema as a large first response;
