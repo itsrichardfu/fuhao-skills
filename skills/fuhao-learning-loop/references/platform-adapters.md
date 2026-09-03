@@ -17,7 +17,7 @@ References:
 
 Use the project or user Skills mechanism available in the current Codex environment. Prefer the cross-client `.agents/skills/fuhao-learning-loop/` location when it is already scanned. Preserve the complete directory so relative references resolve.
 
-Persistent learning state is optional. If a memory or task-state tool exists, map the fields from `session-state.md`; otherwise use the conversation-only state card.
+Persistent learning state is optional. If a memory or task-state tool exists, map the fields from `session-state.md`; otherwise use the conversation-only state card. When the host supports scheduled tasks or thread wakeups, use them for due practice and retest while preserving one-notification-per-due-event behavior.
 
 ## WorkBuddy / CodeBuddy
 
@@ -58,3 +58,16 @@ Use `templates/prompt-only.md` as a system prompt or initial instruction. If the
 | Citation locator | Record source title, supplied link, and available section marker |
 | Cross-conversation message lookup | Resume from the portable state card |
 | Tool readback | Describe the intended write as pending and avoid claiming success |
+| Background queue | Acknowledge after the source is safely held in the current conversation, then process sequentially and report that later materials may wait |
+| Proactive messaging | Return a readable due date and exact resume phrase |
+
+## Message-channel implementation
+
+When adapting to Feishu, Slack, Discord, or another message channel:
+
+1. persist message identity, source link, requested mode, and receipt time before starting slow retrieval;
+2. acknowledge immediately after the persistence write succeeds;
+3. process expensive retrieval or transcription under a bounded worker queue;
+4. record outbound message identity so quoted replies restore the correct learning session;
+5. send each due reminder once and preserve retry-safe idempotency;
+6. keep machine status codes in the state store and render human-readable stages in chat.

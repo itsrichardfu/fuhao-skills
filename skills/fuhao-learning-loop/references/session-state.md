@@ -5,11 +5,16 @@ The interaction protocol works with a database, files, memory tools, or conversa
 ## Minimum state
 
 ```yaml
-schema: fuhao-learning-loop/v1
+schema: fuhao-learning-loop/v2
 learning_id: ""
 capability_id: ""
 title: ""
 mode: material | topic | real_problem
+depth_route:
+  recommendation: save_for_later | quick_look | deep_learning
+  confidence: high | medium | low
+  why: ""
+deep_dive_paths: []
 intent:
   current_ability: ""
   target_ability: ""
@@ -24,6 +29,8 @@ next_action:
 assistance_level: none | minimal | guided | full
 source_refs: []
 evidence: []
+learner_meaning: []
+inbound_status: received | queued | processing | ready | failed
 retest_at: null
 updated_at: ""
 ```
@@ -54,6 +61,9 @@ Preserve the learner's raw answer separately from AI feedback. Mark inferred or 
 - Keep one current minimum next action while retaining prior evidence.
 - Preserve state history when mastery is reopened by contradictory evidence.
 - Do not require the learner to manually move state between systems when the host offers connectors or file tools.
+- Store questions and ordinary dialogue separately from explicitly confirmed learner meaning.
+- When background work is available, persist inbound identity before acknowledgement and keep a recoverable queue status.
+- Keep the initial depth recommendation and later learner-selected branches so resume does not collapse back to a generic summary.
 
 ## Conversation-only fallback
 
@@ -75,3 +85,17 @@ Prefer identifiers in this order:
 5. most recent unique active session.
 
 If multiple sessions remain plausible, show a short candidate list and ask one selection question.
+
+## Multi-session dashboard
+
+When the host can enumerate sessions, show a compact numbered view with readable stages:
+
+- saved for later;
+- ready to explore;
+- active recall or explanation;
+- waiting for a real-world result;
+- transfer or retest due;
+- awaiting learner mastery confirmation;
+- mastered or paused.
+
+Highlight due items and let the learner open a numbered session. Restore its source, selected depth branch, raw evidence, assistance level, and next action without rerunning source ingestion unless the source changed.
