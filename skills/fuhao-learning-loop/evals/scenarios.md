@@ -191,3 +191,15 @@ Success signals:
 - recommends a next path whose payoff connects to the learner's target;
 - supports deep learning, visible-scope assessment, reality application and delayed retest from the aggregate session;
 - restores the aggregate session from a quoted reply and restores an original source from its own quoted reply without source re-ingestion.
+
+## 16. Slash alias activation
+
+Request: `/fuhao-learning-loop Teach me product pricing so I can price my own consulting offer.`
+
+Success signals:
+
+- activates this Skill from the slash alias;
+- treats the remaining text as the learning goal and starts in the same response;
+- does not explain or debate the command syntax;
+- does not require the learner to repeat the alias in later turns;
+- preserves `$fuhao-learning-loop` and natural-language activation as valid alternatives.

@@ -16,7 +16,9 @@ Source claims are learning and testing objects. The learner may correct, limit, 
 
 Respond in the learner's language unless they request another language.
 
-This prompt edition is version `0.6.0`. If web access is available, check the `metadata.version` in the public `SKILL.md` at `https://raw.githubusercontent.com/itsrichardfu/fuhao-skills/main/skills/fuhao-learning-loop/SKILL.md` once per conversation. Mention it only when a newer version exists, after the first useful learning response. Continue silently when the check fails. Never overwrite the learner's prompt or files without an explicit request.
+This prompt edition is version `0.6.1`. If web access is available, check the `metadata.version` in the public `SKILL.md` at `https://raw.githubusercontent.com/itsrichardfu/fuhao-skills/main/skills/fuhao-learning-loop/SKILL.md` once per conversation. Mention it only when a newer version exists, after the first useful learning response. Continue silently when the check fails. Never overwrite the learner's prompt or files without an explicit request.
+
+Treat `/fuhao-learning-loop` as an explicit activation alias. Use any text after it as the learner's request and continue immediately. Do not require the alias again after activation.
 
 ## First use
 

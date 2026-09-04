@@ -6,7 +6,7 @@
 
 | Skill | 它能帮你完成什么 | 状态 |
 |---|---|---|
-| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.6.0 |
+| [`fuhao-learning-loop`](skills/fuhao-learning-loop/) | 把材料、主题或现实问题，推进为能够独立回忆、审辩、应用、迁移并复测的能力 | v0.6.1 |
 
 ### fuhao-learning-loop：把“看过”变成“真正会用”
 
@@ -45,22 +45,28 @@ AI 负责阅读、筛选、拆解、出题、反馈、调整路径、记录状�
 请使用 $skill-installer 安装并验证这个 Skill：
 https://github.com/itsrichardfu/fuhao-skills/tree/main/skills/fuhao-learning-loop
 
-安装到当前用户的 Skills 目录，并保留 SKILL.md、references、scripts、templates 和 evals 的完整结构。如果同名 Skill 已存在：先读取本地与 GitHub 的版本；版本相同就停止，版本较旧则把旧目录备份到同级带时间戳的目录，再安装新版。安装或验证失败时恢复旧目录。最后检查 metadata.version、相对引用和脚本，并用“带我学习一个主题”验证触发。只回复安装路径、版本、验证结果、备份路径（首次安装写“无”）和是否需要重启 Codex。
+安装到当前用户的 Skills 目录，并保留 SKILL.md、references、scripts、templates 和 evals 的完整结构。如果同名 Skill 已存在：先读取本地与 GitHub 的版本；版本相同就停止，版本较旧则把旧目录备份到同级带时间戳的目录，再安装新版。安装或验证失败时恢复旧目录。最后检查 metadata.version、相对引用和脚本，并用“/fuhao-learning-loop 带我学习一个主题”验证斜杠触发。只回复安装路径、版本、验证结果、备份路径（首次安装写“无”）和是否需要重启 Codex。
 ```
 
-安装成功后的下一条消息可以这样写：
+安装成功后可以直接使用斜杠快捷方式：
+
+```text
+/fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
+```
+
+Codex 官方的 Skill 提及方式同样可用：
 
 ```text
 $fuhao-learning-loop 带我学习产品定价。我希望最后能独立给自己的产品定价。
 ```
 
-也可以直接用自然语言：
+也可以直接使用自然语言：
 
 ```text
 请使用 fuhao-learning-loop 帮我内化这篇材料：<材料链接>
 ```
 
-Codex 通常会自动发现新 Skill；没有出现时再重启 Codex。官方说明见 [Codex Skills](https://developers.openai.com/codex/skills)。
+本 Skill 已把 `/fuhao-learning-loop` 写入触发描述，可以直接发送这条斜杠别名来启动学习。Codex 原生支持 `$fuhao-learning-loop` 和自然语言匹配。Codex 通常会自动发现新 Skill；没有出现时再重启 Codex。官方说明见 [Codex Skills](https://developers.openai.com/codex/skills)。
 
 ### Claude Code
 
@@ -88,7 +94,7 @@ Agent 的回执需要同时包含：
 - 安装路径与 `metadata.version`；
 - `SKILL.md` 及四个配套目录完整；
 - Skill 已被客户端发现；
-- “带我学习一个主题”能够触发首次引导和学习目标对齐。
+- `/fuhao-learning-loop 带我学习一个主题` 能够触发首次引导和学习目标对齐。
 
 只复制了一个 `SKILL.md`、目录缺失或只能手动粘贴提示词，都不算完整安装。
 

@@ -1,13 +1,17 @@
 ---
 name: fuhao-learning-loop
-description: Guide adaptive, goal-driven learning that turns a material, topic, book, meeting, course, or real problem into independently recallable, explainable, applicable, transferable, and retestable ability. Use when a learner asks to learn, internalize, be quizzed, continue a learning topic, apply knowledge, or review later.
+description: Guide adaptive, goal-driven learning that turns a material, topic, book, meeting, course, or real problem into independently recallable, explainable, applicable, transferable, and retestable ability. Use when a learner asks to learn, internalize, be quizzed, continue a learning topic, apply knowledge, or review later. Explicit triggers include /fuhao-learning-loop and $fuhao-learning-loop.
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.6.0"
+  version: "0.6.1"
 ---
 
 # Fuhao Learning Loop
+
+## Invocation
+
+Treat `/fuhao-learning-loop` as an explicit request to activate this Skill. Use any text after the alias as the learner's request and continue immediately. `$fuhao-learning-loop` and matching natural-language requests remain valid. Once activated, never require the learner to keep using a command prefix.
 
 ## Outcome
 
