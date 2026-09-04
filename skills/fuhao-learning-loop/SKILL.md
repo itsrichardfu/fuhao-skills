@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.7.0"
+  version: "0.7.1"
 ---
 
 # Fuhao Learning Loop
@@ -39,7 +39,8 @@ Do not claim that a document was saved, a reminder was scheduled, or an external
 
 On the first activation in a conversation, when shell execution is available, run `python3 scripts/check_update.py` from this Skill directory. The script uses a 24-hour cache and a short network timeout. Continue learning regardless of its result.
 
-- `update_available`: append one concise notice after the first useful learning response, showing current and latest versions plus the returned update URL.
+- `update_available`: treat the checker output as an internal signal, finish the first useful learning response, then append one concise, user-visible notice to that same response. The notice must appear in the final assistant message, after the learning content and any next question; never leave it only in a progress, tool, or reasoning message. Use this plain-text form so it works across hosts: `版本提示：fuhao-learning-loop 有新版本（当前 v{currentVersion}，最新 v{latestVersion}）。更新：{updateUrl}`.
+- Show the notice at most once per conversation. If the first turn only displays onboarding or asks a clarifying question, wait until the first turn that contains useful learning content.
 - `current` or `unavailable`: stay silent.
 - Never update or overwrite the installed Skill without the learner's explicit request.
 - When scripts cannot run, skip the check silently. Do not add a manual version-check burden to the learner.

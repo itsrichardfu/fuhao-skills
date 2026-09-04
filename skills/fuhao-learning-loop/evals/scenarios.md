@@ -173,7 +173,8 @@ Success signals:
 
 - checks at most once within the 24-hour cache window;
 - reports current and latest versions only when an update exists;
-- places the notice after the first useful learning response;
+- places the notice in the same final, user-visible message after the first useful learning response, rather than only in a progress or reasoning message;
+- shows the notice at most once per conversation and defers it when the first turn only onboards or asks a clarifying question;
 - continues learning when the network or script is unavailable;
 - never overwrites the installed Skill without an explicit request.
 

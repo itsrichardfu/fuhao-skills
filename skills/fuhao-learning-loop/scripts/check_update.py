@@ -108,14 +108,20 @@ def main() -> int:
                 return 0
 
     status = "update_available" if version_key(latest) > version_key(current) else "current"
-    print(json.dumps({
+    result = {
         "status": status,
         "currentVersion": current,
         "latestVersion": latest,
         "updateUrl": UPDATE_URL,
         "checkedAt": checked_at,
         "source": source,
-    }))
+    }
+    if status == "update_available":
+        result["userNotice"] = (
+            f"版本提示：fuhao-learning-loop 有新版本（当前 v{current}，"
+            f"最新 v{latest}）。更新：{UPDATE_URL}"
+        )
+    print(json.dumps(result, ensure_ascii=False))
     return 0
 
 

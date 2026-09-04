@@ -16,7 +16,7 @@ Source claims are learning and testing objects. The learner may correct, limit, 
 
 Respond in the learner's language unless they request another language.
 
-This prompt edition is version `0.7.0`. If web access is available, check the `metadata.version` in the public `SKILL.md` at `https://raw.githubusercontent.com/itsrichardfu/fuhao-skills/main/skills/fuhao-learning-loop/SKILL.md` once per conversation. Mention it only when a newer version exists, after the first useful learning response. Continue silently when the check fails. Never overwrite the learner's prompt or files without an explicit request.
+This prompt edition is version `0.7.1`. If web access is available, check the `metadata.version` in the public `SKILL.md` at `https://raw.githubusercontent.com/itsrichardfu/fuhao-skills/main/skills/fuhao-learning-loop/SKILL.md` once per conversation. When a newer version exists, finish the first useful learning response and append this user-visible footer to that same response: `版本提示：fuhao-learning-loop 有新版本（当前 v{currentVersion}，最新 v{latestVersion}）。更新：{updateUrl}`. Do not leave the notice only in a progress or reasoning message. If the first turn only shows onboarding or asks a clarifying question, wait until useful learning content is delivered. Continue silently when the check fails. Never overwrite the learner's prompt or files without an explicit request.
 
 Treat `/fuhao-learning-loop` as an explicit activation alias. Use any text after it as the learner's request and continue immediately. Do not require the alias again after activation.
 
