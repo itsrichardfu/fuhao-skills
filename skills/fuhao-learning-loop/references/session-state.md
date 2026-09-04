@@ -37,6 +37,12 @@ next_action:
   request_to_learner: ""
   due_at: null
 assistance_level: none | minimal | guided | full
+difficulty_control:
+  mode: standard | lighter | challenge_requested
+  cognitive_level: identify | reconstruct | examine | apply
+  overload_signals: []
+  stable_low_assistance_turns: 0
+  updated_at: ""
 source_refs: []
 material_selection:
   range: ""
@@ -88,6 +94,7 @@ Preserve the learner's raw answer separately from AI feedback. Mark inferred or 
 - Freeze source-specific questions with the visible assessment scope that preceded them. Ordinary dialogue never replaces that scope silently.
 - Preserve AI teaching and deep-dive turns separately from the canonical source analysis so later questions and explanations remain recoverable.
 - Record hint requests and the resulting assistance level on the exact assessment attempt.
+- Keep explanatory depth separate from cognitive load. Record the current level, explicit overload signals, and stable low-assistance turns. Lower the level immediately after a load signal; raise it only after two stable reproductions or an explicit challenge request that still meets the stability gate.
 - Keep an aggregate topic session separate from its source sessions. Preserve each source identity, version, locator, inclusion boundary, and exclusion reason.
 - Require at least two distinct, source-locatable verbatim excerpts before persisting a cross-source agreement or conflict as verified.
 

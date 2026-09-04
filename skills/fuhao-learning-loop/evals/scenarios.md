@@ -203,3 +203,18 @@ Success signals:
 - does not explain or debate the command syntax;
 - does not require the learner to repeat the alias in later turns;
 - preserves `$fuhao-learning-loop` and natural-language activation as valid alternatives.
+
+## 17. Learner reports overload
+
+Setup: the Agent presents a multi-field validation exercise. The learner says `太难了，分步来` or `I don't know how to answer`.
+
+Success signals:
+
+- acknowledges the load signal in plain language without judging the learner;
+- keeps the same target and source scope while lowering one cognitive level;
+- gives one concrete example or a binary choice and asks one question answerable in one or two sentences;
+- pauses the remaining fields instead of repeating the full exercise;
+- a complete answer on the lighter turn keeps the current level; it does not trigger an immediate jump;
+- after two stable low-assistance turns in a new question, raises one level or adds one variable and explains the reason;
+- a deep-learning request still receives a complete explanation, with answer load handled separately;
+- an explicit `Challenge me` request records intent but follows the same stability gate.

@@ -4,7 +4,7 @@ description: Guide adaptive, goal-driven learning that turns a material, topic, 
 license: MIT
 metadata:
   author: itsrichardfu
-  version: "0.6.1"
+  version: "0.7.0"
 ---
 
 # Fuhao Learning Loop
@@ -56,6 +56,8 @@ On the first activation in a conversation or persistent learning channel, begin 
 - `Quiz me`
 - `Help me apply this to my project`
 - `Save this for later`
+
+If a learning turn feels overloaded, the learner can say `Make it simpler`, `Step by step`, `Give me an example`, or `Explain first`. They can say `Challenge me` when they want a higher bar after a stable turn.
 
 When the host supports persistent material intake, include one compact batch-use hint: switch to save-only while sending several materials, then ask to learn the selected time range toward one target. If batch orchestration is unavailable in the current host, name the actual continuation path and do not imply that the current channel can complete it.
 
@@ -127,7 +129,7 @@ If one missing detail would materially change the path, ask at most one high-val
 
 ### 2. Establish a lightweight baseline
 
-Before active teaching, ask one to three closed-book questions that reveal the learner's existing model. A baseline may test prior knowledge or reasoning from information included in the question. Do not ask for details that only exist in an unread source.
+Before active teaching, ask one to three closed-book questions that reveal the learner's existing model. Send them one per turn, with one main question and at most two short answer slots. A baseline may test prior knowledge or reasoning from information included in the question. Do not ask for details that only exist in an unread source.
 
 A save-only request, urgent fact lookup, or explicit request to skip assessment may defer the baseline. Record the reason.
 
@@ -147,7 +149,7 @@ Generate a full curriculum only when the learner asks for one.
 
 Choose one action per turn: explain a concept, compare models, recall from memory, find a counterexample, solve a case, design a real action, transfer to a new context, or retest.
 
-Provide only the material needed for that action, then request one observable response. Read [references/adaptive-interaction.md](references/adaptive-interaction.md) before teaching, questioning, or giving feedback.
+Provide only the material needed for that action, then request one observable response. Keep one main question and at most two short answer slots. If a task needs a current judgment, missing information, a comparison, an observation, and a revision condition, ask for them across sequential turns. Read [references/adaptive-interaction.md](references/adaptive-interaction.md) before teaching, questioning, or giving feedback.
 
 Explicit interest such as “go deeper,” “why,” “derive it,” “show evidence,” “give examples,” “find a counterexample,” or an equivalent phrase overrides the earlier depth recommendation for that branch.
 
@@ -161,7 +163,7 @@ Use three layers when the material supports them:
 2. **Socratic examination**: inspect premises, causal links, evidence strength, counterexamples, competing explanations, falsifiability, and failure boundaries.
 3. **Reality test**: treat the claim as a hypothesis, apply it in a concrete situation, and identify observations that would support, weaken, or change the judgment.
 
-Ask one question at a time in normal learning. Each question must point to the visible scope it uses. Critical and application questions may have several defensible answers; score reasoning quality and evidence fit. Never grade agreement with the source as a substitute for judgment.
+Ask one question at a time in normal learning. Each question must point to the visible scope it uses and one core cognitive action. Critical and application questions may have several defensible answers; score reasoning quality and evidence fit. Never grade agreement with the source as a substitute for judgment.
 
 Ordinary dialogue appends to the session without silently replacing the visible assessment scope. A deep-dive lesson may create a new scope after its teaching content is shown. If a legacy session has no visible scope, show one before starting the quiz.
 
@@ -183,6 +185,20 @@ After feedback, choose among:
 - pause and save state.
 
 Base difficulty changes on observed responses. Fluency alone does not prove mastery.
+
+### 7a. Control depth and cognitive load separately
+
+“Deep learning” increases explanatory completeness. It does not automatically add more variables to the learner's next answer.
+
+Use four cognitive levels in order: identify one claim or step; reconstruct one mechanism and its key condition; examine one premise, counterexample, or changing piece of evidence; apply one judgment in one concrete context. Move one level at a time.
+
+Keep one main question per turn, with at most two short answer slots. Break experiment design into `judgment → one key variable → one comparison → one observation signal → revision condition`, waiting for each step before adding the next.
+
+Only raise the level or add a variable after two consecutive turns completed with little or no assistance and reproduced in a new question. A long, fluent, or complete answer alone does not authorize a jump.
+
+When the learner says `too hard`, `I don't understand`, `I don't know how to answer`, `step by step`, `give me an example`, or an equivalent phrase, immediately lower one level. Restate the purpose in plain language, offer one concrete example or a binary choice, leave one question answerable in one or two sentences, and pause extra fields. Do not expose internal terms such as “minimum hint” or a long rubric. Preserve the signal for the next turn.
+
+Only an explicit `Challenge me`, `a little harder`, or `add a counterexample` request can restore or raise the challenge, subject to the same stability evidence.
 
 ### 8. Apply and transfer
 
@@ -244,6 +260,7 @@ Read [references/platform-adapters.md](references/platform-adapters.md) when ins
 | Apply | `Give me a real exercise` · `Apply this to my project` |
 | Retest | `Retest the previous lesson` · `What review is due?` |
 | Meaning | `My understanding: ...` · `我的理解：……` |
+| Difficulty | `Make it simpler` · `Step by step` · `Give me an example` · `简单一点` · `分步来` · `给个例子` · `Challenge me` |
 | Control | `Pause` · `Save only` · `End this topic` |
 
 ## Per-turn output
@@ -253,7 +270,8 @@ For a new material, show the progressive learning navigation. During an active l
 1. current topic and target ability;
 2. the gap handled in this turn;
 3. the learning material or question;
-4. what will happen after the response.
+4. the current learning rhythm in plain language when it changed (for example, “this turn only practices one small point”);
+5. what will happen after the response.
 
 Keep internal IDs, storage paths, and synchronization details quiet unless ambiguity or failure requires them.
 
@@ -270,6 +288,9 @@ When the host supports structured message cards, use them for navigation, deep l
 - Every source-specific question maps to ideas or judgment dimensions shown before the question.
 - The assessment distinguishes accurate source reconstruction from agreement and rewards evidence-based correction or rejection.
 - Socratic questions test premises, counterexamples, competing explanations, falsifiability, or reality evidence.
+- Each turn has one main question and at most two short answer slots; multi-field validation is split across turns.
+- Deep explanatory completeness is independent from answer difficulty; a complete single answer does not trigger a level jump.
+- Overload signals lower the current action, give a concrete entry point, and pause extra requirements.
 - The assistance level is traceable.
 - The next step follows the current gap and contains one cognitive action.
 - Source claims and interpretations remain separated.
